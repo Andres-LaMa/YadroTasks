@@ -5,7 +5,8 @@
 
 #include "Computer_Club.hpp"
 
-void processInputFile(const std::string& filename) {
+void processInputFile(const std::string &filename)
+{
   std::ifstream file(filename);
   if (!file.is_open()) {
     std::cerr << "Error: could not open file " << filename << "\n";
@@ -31,7 +32,8 @@ void processInputFile(const std::string& filename) {
     tableCount = stoi(lines[0]);
     if (tableCount <= 0)
       throw std::invalid_argument("Table count must be positive");
-  } catch (...) {
+  }
+  catch (...) {
     std::cerr << "Error: invalid table count" << "\n";
     exit(1);
   }
@@ -53,7 +55,8 @@ void processInputFile(const std::string& filename) {
 
     if (closeTime <= openTime)
       throw std::invalid_argument("Close time must be after open time");
-  } catch (const std::exception& e) {
+  }
+  catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
     exit(1);
   }
@@ -63,7 +66,8 @@ void processInputFile(const std::string& filename) {
     hourCost = stoi(lines[2]);
     if (hourCost <= 0)
       throw std::invalid_argument("Hour cost must be positive");
-  } catch (...) {
+  }
+  catch (...) {
     std::cerr << "Error: invalid hour cost" << "\n";
     exit(1);
   }
@@ -95,7 +99,8 @@ void processInputFile(const std::string& filename) {
       int eventId = stoi(eventIdStr);
 
       club.processEvent(time, eventId, eventBody);
-    } catch (const std::exception& e) {
+    }
+    catch (const std::exception &e) {
       std::cerr << "Error in line " << (num_str + 1) << ": " << e.what()
                 << std::endl;
       exit(1);
@@ -106,12 +111,13 @@ void processInputFile(const std::string& filename) {
   club.endDay();
 
   std::vector<std::string> report = club.generateReport();
-  for (const auto& line : report) {
+  for (const auto &line : report) {
     std::cout << line << std::endl;
   }
 }
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
   if (argc != 2) {
     std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
     return 1;
@@ -119,7 +125,8 @@ int main(int argc, char* argv[]) {
 
   try {
     processInputFile(argv[1]);
-  } catch (const std::exception& e) {
+  }
+  catch (const std::exception &e) {
     std::cerr << "Error: " << e.what() << std::endl;
     return 1;
   }

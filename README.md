@@ -2,10 +2,7 @@
 Задачи и кейсы от команды Ядро
 <!--Блок информации о репозитории в бейджах-->
 ![Static Badge](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
-![GitHub top language](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
-![GitHub](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
-![GitHub Repo stars](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
-![GitHub issues](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
+
 
 <!--Установка-->
 ## Установка (Linux)
@@ -22,7 +19,7 @@
 3. Переход в директорию кейса
 
 ```cd YadroTasks/<номер задачи>_task```
-or
+или
 ```cd ./<номер задачи>_task```
 
 4. Проверка версии gcc или clang
@@ -34,7 +31,11 @@ or
 
 ```make```
 
-6. Запуск (пока в дирректории кейсов)
+6. Сборка тестов (пока в дирректории кейсов)
+
+```make test```
+
+7. Запуск (пока в дирректории кейсов)
 
 ```./main task_ex```
 
@@ -48,8 +49,8 @@ or
 
 <!--зависимости-->
 ## Зависимости
-Эта программа зависит от компилятора gcc версии 11 или выше или clang версии 14 или выше. На других компиляторах программа не тестировалась! Если вы заметили, что он данное ПО можно запустить на версии ниже, или он не работает на какой-либо версии, то напишите мне на почту
+Эта программа зависит от компилятора gcc версии 11 или выше или clang версии 14 или выше. На других компиляторах программа не тестировалась! В проекте присутсвуют тесты создаваемые с помощью Gtest. Если вы заметили, что он данное ПО можно запустить на версии ниже, или он не работает на какой-либо версии, то напишите мне на почту
 
 <!--описание коммитов-->
 ## Описание коммитов
-Однажды будет
+Однажды может быть будет

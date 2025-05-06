@@ -8,9 +8,11 @@
 #include <string>
 #include <vector>
 
-class ComputerClub {
+class ComputerClub
+{
  private:
-  struct Table {
+  struct Table
+  {
     int number;
     int revenue = 0;
     std::chrono::minutes busyTime{0};
@@ -18,7 +20,9 @@ class ComputerClub {
     std::chrono::minutes startTime;
     bool isBusy = false;
 
-    Table(int num) : number(num) {}
+    Table(int num)
+        : number(num)
+    {}
   };
 
   int tableCount;
@@ -30,15 +34,16 @@ class ComputerClub {
   std::queue<std::string> waitingQueue;
   std::vector<std::string> eventsOutput;
 
-  bool isOpenAt(const std::chrono::minutes& time) const;
-  void freeTable(int tableNum, const std::chrono::minutes& currentTime);
+  void freeTable(int tableNum, const std::chrono::minutes &currentTime);
 
  public:
-  ComputerClub(int tables, const std::chrono::minutes& open,
-               const std::chrono::minutes& close, int cost);
+  bool isOpenAt(const std::chrono::minutes &time) const;
 
-  void processEvent(const std::chrono::minutes& time, int eventId,
-                    const std::vector<std::string>& eventBody);
+  ComputerClub(int tables, const std::chrono::minutes &open,
+               const std::chrono::minutes &close, int cost);
+
+  void processEvent(const std::chrono::minutes &time, int eventId,
+                    const std::vector<std::string> &eventBody);
   void endDay();
   std::vector<std::string> generateReport() const;
 };
