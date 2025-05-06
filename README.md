@@ -1,0 +1,55 @@
+# YadroTasks
+Задачи и кейсы от команды Ядро
+<!--Блок информации о репозитории в бейджах-->
+![Static Badge](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
+![GitHub top language](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
+![GitHub](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
+![GitHub Repo stars](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
+![GitHub issues](https://mnto.ru/wp-content/uploads/2023/09/prilavokvitrina-nejtralnyj-finist-pvn-1500-black.jpg)
+
+<!--Установка-->
+## Установка (Linux)
+У вас должны быть установлены [зависимости проекта](https://github.com/OkulusDev/Oxygen#зависимости)
+
+1. Клонирование репозитория 
+
+```git clone https://github.com/Andres-LaMa/YadroTasks.git```
+
+2. Переход в директорию YadroTasks
+
+```cd YadroTasks```
+
+3. Переход в директорию кейса
+
+```cd YadroTasks/<номер задачи>_task```
+or
+```cd ./<номер задачи>_task```
+
+4. Проверка версии gcc или clang
+
+```gcc --version``
+```clang++ -v``
+
+5. Сборка проекта (пока в дирректории кейсов)
+
+```make```
+
+6. Запуск (пока в дирректории кейсов)
+
+```./main task_ex```
+
+
+## Описание задач
+Документацию по каждому кейсу можно получить внутри каждой дирректории.
+
+<!--Поддержка-->
+## Поддержка
+Если у вас возникли сложности или вопросы по использованию пакета, в данном репозитории или напишите на электронную почту <andrejershov5045@gmail.com>.
+
+<!--зависимости-->
+## Зависимости
+Эта программа зависит от компилятора gcc версии 11 или выше или clang версии 14 или выше. На других компиляторах программа не тестировалась! Если вы заметили, что он данное ПО можно запустить на версии ниже, или он не работает на какой-либо версии, то напишите мне на почту
+
+<!--описание коммитов-->
+## Описание коммитов
+Однажды будет
