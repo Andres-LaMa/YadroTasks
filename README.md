@@ -6,7 +6,7 @@
 
 <!--Установка-->
 ## Установка (Linux)
-У вас должны быть установлены [зависимости проекта](https://github.com/OkulusDev/Oxygen#зависимости)
+У вас должны быть установлены [зависимости проекта](https://github.com/Andres-LaMa/YadroTasks/tree/master?tab=readme-ov-file#зависимости)
 
 1. Клонирование репозитория 
 
