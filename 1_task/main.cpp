@@ -1,7 +1,9 @@
+#include <chrono>
 #include <fstream>
+#include <iomanip>
+#include <sstream>
 
-#include "Computer_Club.cpp"
-#include "Time.cpp"
+#include "Computer_Club.hpp"
 
 void processInputFile(const std::string& filename) {
   std::ifstream file(filename);
@@ -13,7 +15,7 @@ void processInputFile(const std::string& filename) {
   std::string line;
   std::vector<std::string> lines;
 
-  while (getline(file, line)) {
+  for (size_t i = 0; i < 3 && getline(file, line); i++) {
     if (!line.empty()) {
       lines.push_back(line);
     }
@@ -34,7 +36,7 @@ void processInputFile(const std::string& filename) {
     exit(1);
   }
 
-  Time openTime, closeTime;
+  std::chrono::minutes openTime, closeTime;  // test chrono 1
   try {
     size_t spacePos = lines[1].find(' ');
     if (spacePos == std::string::npos)
@@ -43,8 +45,11 @@ void processInputFile(const std::string& filename) {
     std::string openStr = lines[1].substr(0, spacePos);
     std::string closeStr = lines[1].substr(spacePos + 1);
 
-    openTime = Time::fromString(openStr);
-    closeTime = Time::fromString(closeStr);
+    std::istringstream issOpen(openStr);
+    issOpen >> std::chrono::parse("%H:%M", openTime);
+
+    std::istringstream issClose(closeStr);
+    issClose >> std::chrono::parse("%H:%M", closeTime);
 
     if (closeTime <= openTime)
       throw std::invalid_argument("Close time must be after open time");
@@ -65,8 +70,14 @@ void processInputFile(const std::string& filename) {
 
   ComputerClub club(tableCount, openTime, closeTime, hourCost);
 
-  for (size_t i = 3; i < lines.size(); ++i) {
-    std::stringstream ss(lines[i]);
+  size_t num_str = 4;
+  while (getline(file, line)) {
+    if (line.empty()) {
+      ++num_str;
+      continue;
+    }
+
+    std::stringstream ss(line);
     std::string timeStr, eventIdStr;
     std::vector<std::string> eventBody;
 
@@ -77,14 +88,19 @@ void processInputFile(const std::string& filename) {
     }
 
     try {
-      Time time = Time::fromString(timeStr);
+      std::chrono::minutes time;
+      std::istringstream iss(timeStr);
+      iss >> parse("%H:%M", time);
+
       int eventId = stoi(eventIdStr);
 
       club.processEvent(time, eventId, eventBody);
     } catch (const std::exception& e) {
-      std::cerr << "Error in line " << (i + 1) << ": " << e.what() << std::endl;
+      std::cerr << "Error in line " << (num_str + 1) << ": " << e.what()
+                << std::endl;
       exit(1);
     }
+    ++num_str;
   }
 
   club.endDay();
